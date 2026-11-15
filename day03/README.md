@@ -11,8 +11,11 @@ Open a terminal in this `day03` folder and run:
 python3 dilution_calculator_ui.py
 ```
 
-The calculator opens in your browser at <http://127.0.0.1:8000/>. Keep the
-terminal open while using it; press `Ctrl+C` in the terminal to stop it.
+The calculator normally opens in your browser at <http://127.0.0.1:8000/>.
+The terminal prints the exact address. If port 8000 is already in use, the
+program automatically selects an available port and opens that address
+instead. Keep the terminal open while using it; press `Ctrl+C` in the terminal
+to stop the server.
 
 Enter the stock concentration, target concentration, and final volume in the
 form. Choose a unit for each value and click **Calculate**. The result gives

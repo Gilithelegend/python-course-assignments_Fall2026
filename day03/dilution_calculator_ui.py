@@ -1,3 +1,4 @@
+import errno
 import html
 import math
 import threading
@@ -248,9 +249,19 @@ class DilutionRequestHandler(BaseHTTPRequestHandler):
         pass
 
 
+def _create_server(port: int = PORT) -> ThreadingHTTPServer:
+    try:
+        return ThreadingHTTPServer((HOST, port), DilutionRequestHandler)
+    except OSError as error:
+        if error.errno != errno.EADDRINUSE:
+            raise
+        print(f"Port {port} is already in use; choosing an available port.")
+        return ThreadingHTTPServer((HOST, 0), DilutionRequestHandler)
+
+
 def main() -> None:
-    server = ThreadingHTTPServer((HOST, PORT), DilutionRequestHandler)
-    url = f"http://{HOST}:{PORT}/"
+    server = _create_server()
+    url = f"http://{HOST}:{server.server_port}/"
     print(f"Dilution Calculator is running at {url}")
     print("Press Ctrl+C to stop the server.")
     threading.Timer(0.5, webbrowser.open, args=(url,)).start()

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "M to mM, mL",
+    "inputs": {
+      "stock_concentration": 1,
+      "stock_unit": "M",
+      "target_concentration": 100,
+      "target_unit": "mM",
+      "final_volume": 50,
+      "volume_unit": "mL"
+    },
+    "expected": {
+      "stock_volume": 5,
+      "water_volume": 45
+    }
+  },
+  {
+    "name": "uM to µM, mL",
+    "inputs": {
+      "stock_concentration": 500,
+      "stock_unit": "uM",
+      "target_concentration": 25,
+      "target_unit": "µM",
+      "final_volume": 2,
+      "volume_unit": "mL"
+    },
+    "expected": {
+      "stock_volume": 0.1,
+      "water_volume": 1.9
+    }
+  },
+  {
+    "name": "mM to µM, µL",
+    "inputs": {
+      "stock_concentration": 2,
+      "stock_unit": "mM",
+      "target_concentration": 750,
+      "target_unit": "µM",
+      "final_volume": 500,
+      "volume_unit": "µL"
+    },
+    "expected": {
+      "stock_volume": 187.5,
+      "water_volume": 312.5
+    }
+  },
+  {
+    "name": "µM to nM, µL",
+    "inputs": {
+      "stock_concentration": 1,
+      "stock_unit": "µM",
+      "target_concentration": 250,
+      "target_unit": "nM",
+      "final_volume": 1000,
+      "volume_unit": "uL"
+    },
+    "expected": {
+      "stock_volume": 250,
+      "water_volume": 750
+    }
+  }
+]
