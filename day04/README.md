@@ -56,3 +56,24 @@ assignment:
 4. I pasted my terminal errors (copying the folder from the wrong place,
    "Port 5001 is in use", a wrong file name, a paste that created a
    SyntaxError) and asked what each one means and how to fix it.
+## Day 05 - Tests for the business logic
+
+I added `test_dilution_logic.py`, which tests `calculate_dilution()` with pytest.
+
+How to run:
+
+    python3 -m pip install pytest
+    python3 -m pytest
+
+What the tests check:
+
+- Two normal dilutions where I know the answer from C1*V1 = C2*V2.
+- Stock volume plus water volume equals the final volume.
+- Target equal to stock needs no water.
+- A target above the stock concentration gives an error.
+- An unknown unit gives an error.
+
+AI used: Claude. I pasted the Day 5 assignment and asked for step-by-step
+instructions. Claude drafted the test file and explained `assert`,
+`pytest.approx` and `pytest.raises`. I set up pytest, created the file, ran
+the tests, and checked the expected values by hand with C1*V1 = C2*V2.
